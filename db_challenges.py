@@ -1,3 +1,7 @@
+#** Nunez, Priscilla
+#** SI 364
+#** Fall 2018
+
 import os
 from flask import Flask, render_template, session, redirect, url_for, request
 from flask_script import Shell, Manager
@@ -15,7 +19,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hardtoguessstringfromsi364thisisnotsupersecurebutitsok'
 
 # Challenge 2.1 : Update the database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = ""
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://D5@localhost:5432/moviedb"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -39,6 +43,8 @@ class Movie(db.Model):
 
 class Director(db.Model):
     __tablename__ = 'directors'
+    directorId = db.Column(db.Integer, primary_key=True)
+    directorName =  db.Column(db.String(64))
     ### Complete the model for Director based on the information provided in section notes
 
 if __name__=='__main__':

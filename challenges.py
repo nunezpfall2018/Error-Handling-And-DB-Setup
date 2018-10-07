@@ -1,3 +1,7 @@
+#** Nunez, Priscilla
+#** SI 364
+#** Fall 2018
+
 from flask import Flask, render_template, request
 import json
 import requests
@@ -18,6 +22,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    #** raise Exception('This is an example of a python exception error - nunezp.')
     return "Hello, World!"
 
 @app.route('/itunes-form')
@@ -26,7 +31,25 @@ def ituneForm():
 
 @app.route('/itunes-result')
 def resultTunes():
-    pass
+    artist = request.args.get('artist')
+    num = request.args.get('num')
+
+    url = "https://itunes.apple.com/search"
+    params = {"media": "music", "term": artist, "limit": num}
+    get_name = requests.get(url, params = params)
+    json_format = json.loads(get_name.text)
+    context = {
+        'results': json_format["results"],
+    }
+    return render_template('list.html', **context)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 
 if __name__ == '__main__':
