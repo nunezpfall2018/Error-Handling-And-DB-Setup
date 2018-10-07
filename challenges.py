@@ -8,21 +8,18 @@ import requests
 
 app = Flask(__name__)
 
-# Challenge 1: Return the 404.html template
-# Edit it such that it displays an interesting message
+#** Challenge 1: Returned the 404.html template
+#** Edited message variations
 
-# Challenge 2: Include the link to homepage i.e. http://localhost:5000 in 404.html.
-## YOUR CODE HERE
+#** Challenge 2: Included the link to homepage i.e. http://localhost:5000 in 404.html.
 
-# Challenge 3: Write an error handler for 500 error
-## YOUR CODE HERE
-
-# Challenge 4: Edit the 500.html template to display link to homepage and link to itunes-form.
+#** Challenge 3: Wrote an error handler for 500 error. Simulated Internal Server Error.
+#** Challenge 4: Edit the 500.html template to display link to homepage and link to itunes-form.
 
 
 @app.route('/')
 def index():
-    #** raise Exception('This is an example of a python exception error - nunezp.')
+    #** OPTION raise Exception('This is an example of a python exception error - nunezp.')
     return "Hello, World!"
 
 @app.route('/itunes-form')
@@ -31,8 +28,8 @@ def ituneForm():
 
 @app.route('/itunes-result')
 def resultTunes():
-    artist = request.args.get('artist')
-    num = request.args.get('num')
+    artist = request.args.get('artist')           #** Request Artist in blank 
+    num = request.args.get('num')                 #** Select number of listings 5 through 15
 
     url = "https://itunes.apple.com/search"
     params = {"media": "music", "term": artist, "limit": num}

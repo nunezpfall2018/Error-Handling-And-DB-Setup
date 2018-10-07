@@ -11,28 +11,29 @@ from wtforms.validators import Required
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 
-# Configure base directory of app
+#** Configured base directory of app
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Application configurations
+#** Application configurations
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hardtoguessstringfromsi364thisisnotsupersecurebutitsok'
 
-# Challenge 2.1 : Update the database URI
+#** Challenge 2.1 : Update the database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://D5@localhost:5432/moviedb"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app) # For database use
+db = SQLAlchemy(app) #** For database use
 
 #########
 ######### Everything above this line is important setup, not problem-solving.
-#########
+######### 
+#** Set up Postico and saw there is also an option to add database
 
 ##### Set up Models #####
-## Challenge 2.2: Write models for the tables Movie and Director
+#** Challenge 2.2: Wrote models for the tables Movie and Director
 
-class Movie(db.Model):
+class Movie(db.Model):            #** Similar logic used for Example Tweets and Users in class
     __tablename__ = 'movies'
     movieId = db.Column(db.Integer, primary_key=True)
     movieTitle = db.Column(db.String(64))
@@ -45,7 +46,7 @@ class Director(db.Model):
     __tablename__ = 'directors'
     directorId = db.Column(db.Integer, primary_key=True)
     directorName =  db.Column(db.String(64))
-    ### Complete the model for Director based on the information provided in section notes
+    #** Completed the model for Director based on the information provided in section notes
 
 if __name__=='__main__':
     app.run()
