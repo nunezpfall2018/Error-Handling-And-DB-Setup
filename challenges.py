@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    #** OPTION raise Exception('This is an example of a python exception error - nunezp.')
+    raise Exception('This is an example of a python exception error - Fall2018 student.')
     return "Hello, World!"
 
 @app.route('/itunes-form')
@@ -47,6 +47,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
+    #** OPTION raise Exception('This is an example of a python exception error - nunezp.') Placement would be up by index.
 
 
 if __name__ == '__main__':

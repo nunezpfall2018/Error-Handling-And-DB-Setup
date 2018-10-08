@@ -44,9 +44,10 @@ class Movie(db.Model):            #** Similar logic used for Example Tweets and 
 
 class Director(db.Model):
     __tablename__ = 'directors'
-    directorId = db.Column(db.Integer, primary_key=True)
-    directorName =  db.Column(db.String(64))
+    directorId = db.Column(db.Integer, primary_key=True) #** primary key provides unique ID
+    directorName =  db.Column(db.String(64))             #** keeping same as movie title 64
     #** Completed the model for Director based on the information provided in section notes
 
 if __name__=='__main__':
+    db.create_all()
     app.run()
