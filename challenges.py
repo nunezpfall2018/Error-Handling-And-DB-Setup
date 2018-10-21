@@ -1,6 +1,12 @@
-#** Nunez, Priscilla
-#** SI 364
+#** Nunez,Priscilla 
+#** SI 364 
 #** Fall 2018
+
+#** Note: Code is my own, any students I have tutored using my code must include that I have 
+#** helped tutor them on ALL homework assignments using my code in SI 206, SI 339 and SI 364. 
+#** Please notify our GSIs and Professors.
+#** ---> Tutor: Nunez, Priscilla 
+#** (Include what assignment number here, also include the lines of code and what you learned by the code used.)
 
 from flask import Flask, render_template, request
 import json
