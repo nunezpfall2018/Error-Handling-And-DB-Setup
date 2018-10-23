@@ -20,7 +20,7 @@ app = Flask(__name__)
 #** Challenge 2: Included the link to homepage i.e. http://localhost:5000 in 404.html.
 
 #** Challenge 3: Wrote an error handler for 500 error. Simulated Internal Server Error.
-#** Challenge 4: Edit the 500.html template to display link to homepage and link to itunes-form.
+#** Challenge 4: Edited the 500.html template to display link to homepage and link to itunes-form.
 
 
 @app.route('/')
